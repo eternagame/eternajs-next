@@ -1,11 +1,10 @@
 {
-  "extends": "../tsconfig.base.json",
+  "extends": "@eternagame/tsconfig/tsconfig.node.json",
   "compilerOptions": {
-    "outDir": "../dist/out-tsc/tools",
+    "outDir": "dist",
     "rootDir": ".",
     "module": "commonjs",
-    "target": "es5",
-    "types": ["node"],
+    "preserveValueImports": false,
     "importHelpers": false
   },
   "include": ["**/*.ts"]

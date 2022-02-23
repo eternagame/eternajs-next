@@ -15,9 +15,20 @@
           "build",
           "lint",
           "test",
-          "e2e"
+          "e2e",
+          "build-incremental"
         ]
       }
     }
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.js": "*",
+    "tsconfig.base.json": "*",
+    ".github/workflows/ci.yml": "*",
+    "nx.json": "*"
   }
 }

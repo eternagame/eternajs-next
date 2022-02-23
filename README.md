@@ -1,94 +1,59 @@
+# eternajs-next
 
+RNA design interface and utilities
 
-# EternajsNext
+This repository is for the in-progress rewrite of EternaJS. For the current version, please see
+https://github.com/eternagame/eternajs
 
-This project was generated using [Nx](https://nx.dev).
+Interested in development? Join the discussion on the Eterna Discord!
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+[![Eterna Discord](https://discord.com/api/guilds/702618517589065758/widget.png?style=banner2)](https://discord.gg/KYeTwux)
 
-🔎 **Smart, Fast and Extensible Build System**
+## Setup
 
-## Adding capabilities to your workspace
+- Install [NodeJS](https://nodejs.org/en/download/) (we recommend using the latest LTS version)
+- Run `npm install` in the root of this repository
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+## Common Commands
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+This project is structured as a monorepo, using [NPM Workspaces](https://docs.npmjs.com/cli/v8/using-npm/workspaces)
+and [Nx](https://nx.dev/) to manage its components. Here are some common actions you might want to take:
 
-Below are our core plugins:
+### Development Server
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+Run `npx nx serve <package-name>` to run a local development server for a given package, configured
+with things like live reloading.
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+### Build
 
-## Generate an application
+Run `npx nx build <package-name>` to build a package. This will also build any dependencies of the package.
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+### Linting and Formatting
 
-> You can use any of the plugins above to generate applications as well.
+Run `npx nx lint <package-name>` to run linting for a package via [ESLint](https://eslint.org/).
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+Run `npx prettier --write .` to format files via [Prettier](https://prettier.io/)
 
-## Generate a library
+### Unit Tests
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+Run `npx nx test <package-name>` to execute the unit tests for a package via [Jest](https://jestjs.io/).
 
-> You can also use any of the plugins above to generate libraries as well.
+Run `npx nx affected:test` to execute the unit tests for all packages affected by a code change.
 
-Libraries are shareable across libraries and applications. They can be imported from `@eternajs-next/mylib`.
+### Generate a Package
 
-## Development server
+To scaffold a new package, run `npx nx generate @eternagame/nx:package`. You may also want to pass the
+`--directory` flag to put the package in a specific directory if it doesn't match your desired package name.
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+### Updating Dependencies
 
-## Code scaffolding
+When updating Nx plugins (or dependencies that are managed by Nx plugins), the plugins may have
+changes to configurations or other changes that should be made when updating. The process of updating
+packages and making changes is automated, and can be done via `npx nx migrate latest` and then (if necessary)
+`npx nx migrate --run-migrations` after reviewing the changes to be made in the migrations.json. Never update these packages
+"manually" (without using this command). Remove the migrations.json file before committing changes.
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+For updating other dependencies, you may want to use `npx npm-check-updates --deep --peer`
 
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+If you're on a unix-like system and want to remove all nested node_modules folders,
+you can run `find . -type d -name node_modules -prune | xargs rm -r`
