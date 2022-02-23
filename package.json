@@ -1,5 +1,5 @@
 {
-  "name": "eternajs-next",
+  "name": "@eternagame/eternajs",
   "version": "0.0.0",
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
@@ -11,7 +11,7 @@
   "devDependencies": {
     "@eternagame/eslint-plugin": "^1.1.0",
     "@eternagame/jest": "^1.1.0",
-    "@eternagame/nx": "^1.3.0",
+    "@eternagame/nx": "^1.3.1",
     "@eternagame/tsconfig": "^1.1.0",
     "@nrwl/cli": "13.8.3",
     "@nrwl/eslint-plugin-nx": "13.8.3",
