@@ -11,7 +11,7 @@
   "devDependencies": {
     "@eternagame/eslint-plugin": "^1.1.0",
     "@eternagame/jest": "^1.1.0",
-    "@eternagame/nx": "^1.3.2",
+    "@eternagame/nx": "^1.3.3",
     "@eternagame/tsconfig": "^1.1.0",
     "@nrwl/cli": "13.8.3",
     "@nrwl/eslint-plugin-nx": "13.8.3",
