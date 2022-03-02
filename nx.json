@@ -1,34 +1,4 @@
 {
-  "extends": "@nrwl/workspace/presets/core.json",
-  "npmScope": "eternajs-next",
-  "affected": {
-    "defaultBase": "main"
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e",
-          "build-incremental"
-        ]
-      }
-    }
-  },
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    ".eslintrc.js": "*",
-    "tsconfig.base.json": "*",
-    ".github/workflows/ci.yml": "*",
-    "nx.json": "*"
-  }
+  "extends": "@eternagame/nx/preset.json",
+  "npmScope": "eternagame"
 }
