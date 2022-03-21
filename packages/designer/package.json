@@ -18,7 +18,8 @@
   "types": "./dist/index.d.ts",
   "dependencies": {
     "@eternagame/rna": "file:../rna",
-    "@eternagame/rna-viz-2d": "file:../rna-viz-2d"
+    "@eternagame/rna-viz-2d": "file:../rna-viz-2d",
+    "pixi.js": "^6.2.2"
   },
   "devDependencies": {
     "@eternagame/jest": "*",
