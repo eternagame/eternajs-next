@@ -1,0 +1,27 @@
+{
+  "name": "@eternagame/designer",
+  "description": "Designer library",
+  "version": "1.0.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "prepublishOnly": "shx cp ../../LICENSE . && nx build",
+    "postpublish": "shx rm LICENSE",
+    "prebuild": "shx rm -rf dist",
+    "build": "vite build",
+    "build-watch": "vite build --watch --mode development --clearScreen false",
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "lint": "eslint src/"
+  },
+  "type": "module",
+  "main": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@eternagame/rna": "file:../rna",
+    "@eternagame/rna-viz-2d": "file:../rna-viz-2d"
+  },
+  "devDependencies": {
+    "@eternagame/jest": "*",
+    "@eternagame/vite": "*"
+  }
+}

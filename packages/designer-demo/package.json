@@ -1,0 +1,25 @@
+{
+  "name": "@eternagame/designer-demo",
+  "description": "Designer test harness",
+  "version": "1.0.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "prepublishOnly": "shx cp ../../LICENSE . && nx build",
+    "postpublish": "shx rm LICENSE",
+    "prebuild": "shx rm -rf dist",
+    "build": "vite build",
+    "build-watch": "vite build --watch --mode development --clearScreen false",
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "lint": "eslint src/",
+    "serve": "nx build && nx-spawn npm:build-watch --extraRootCommand vite --noRoot"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@eternagame/jest": "*",
+    "@eternagame/vite": "*"
+  },
+  "dependencies": {
+    "@eternagame/designer": "file:../designer"
+  }
+}

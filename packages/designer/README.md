@@ -1,0 +1,3 @@
+# @eternagame/designer
+
+Designer library

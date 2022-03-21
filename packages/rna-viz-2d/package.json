@@ -1,0 +1,26 @@
+{
+  "name": "@eternagame/rna-viz-2d",
+  "description": "2D RNA visualization",
+  "version": "1.0.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "prepublishOnly": "shx cp ../../LICENSE . && nx build",
+    "postpublish": "shx rm LICENSE",
+    "prebuild": "shx rm -rf dist",
+    "build": "vite build",
+    "build-watch": "vite build --watch --mode development --clearScreen false",
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "lint": "eslint src/"
+  },
+  "type": "module",
+  "main": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@eternagame/rna": "file:../rna"
+  },
+  "devDependencies": {
+    "@eternagame/jest": "*",
+    "@eternagame/vite": "*"
+  }
+}
